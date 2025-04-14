@@ -150,7 +150,7 @@ export function RepositorySelectionDialog({ isOpen, onClose, onSelect }: Reposit
     const connection = getLocalStorage('github_connection');
 
     if (!connection?.token) {
-      toast.error('Please connect your GitHub account first');
+      toast.error('Hubungkan akun GitHub kamu dahulu');
       return;
     }
 
@@ -180,7 +180,7 @@ export function RepositorySelectionDialog({ isOpen, onClose, onSelect }: Reposit
       }
     } catch (error) {
       console.error('Error fetching repos:', error);
-      toast.error('Failed to fetch your repositories');
+      toast.error('Gagal mengambil repositori');
     } finally {
       setIsLoading(false);
     }
@@ -228,7 +228,7 @@ export function RepositorySelectionDialog({ isOpen, onClose, onSelect }: Reposit
       }
     } catch (error) {
       console.error('Error searching repos:', error);
-      toast.error('Failed to search repositories');
+      toast.error('Gagal mencari repositori');
     } finally {
       setIsLoading(false);
     }
@@ -245,7 +245,7 @@ export function RepositorySelectionDialog({ isOpen, onClose, onSelect }: Reposit
       });
 
       if (!response.ok) {
-        throw new Error('Failed to fetch branches');
+        throw new Error('Gagal mengambil branch');
       }
 
       const data = await response.json();
@@ -259,11 +259,11 @@ export function RepositorySelectionDialog({ isOpen, onClose, onSelect }: Reposit
           })),
         );
       } else {
-        throw new Error('Invalid branch data format');
+        throw new Error('Invalid format data branch');
       }
     } catch (error) {
       console.error('Error fetching branches:', error);
-      toast.error('Failed to fetch branches');
+      toast.error('Gagal mengambil branch');
     } finally {
       setIsLoading(false);
     }
@@ -299,7 +299,7 @@ export function RepositorySelectionDialog({ isOpen, onClose, onSelect }: Reposit
       });
 
       if (!treeResponse.ok) {
-        throw new Error('Failed to fetch repository structure');
+        throw new Error('Gagal mengambil struktur repositori');
       }
 
       const treeData = (await treeResponse.json()) as GitHubTreeResponse;
@@ -361,7 +361,7 @@ export function RepositorySelectionDialog({ isOpen, onClose, onSelect }: Reposit
       return stats;
     } catch (error) {
       console.error('Error verifying repository:', error);
-      toast.error('Failed to verify repository');
+      toast.error('Gagal verifikasi repositori');
 
       return null;
     }
@@ -395,7 +395,7 @@ export function RepositorySelectionDialog({ isOpen, onClose, onSelect }: Reposit
       setShowStatsDialog(true);
     } catch (error) {
       console.error('Error preparing repository:', error);
-      toast.error('Failed to prepare repository. Please try again.');
+      toast.error('Gagal menyiapkan repositori. Coba lagi.');
     }
   };
 
@@ -441,7 +441,7 @@ export function RepositorySelectionDialog({ isOpen, onClose, onSelect }: Reposit
         <Dialog.Content className="fixed top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[90vw] md:w-[600px] max-h-[85vh] overflow-hidden bg-white dark:bg-[#1A1A1A] rounded-xl shadow-xl z-[51] border border-[#E5E5E5] dark:border-[#333333]">
           <div className="p-4 border-b border-[#E5E5E5] dark:border-[#333333] flex items-center justify-between">
             <Dialog.Title className="text-lg font-semibold text-bolt-elements-textPrimary dark:text-bolt-elements-textPrimary-dark">
-              Import GitHub Repository
+              Import GitHub Repositori
             </Dialog.Title>
             <Dialog.Close
               onClick={handleClose}
@@ -454,7 +454,7 @@ export function RepositorySelectionDialog({ isOpen, onClose, onSelect }: Reposit
               )}
             >
               <span className="i-ph:x block w-5 h-5" aria-hidden="true" />
-              <span className="sr-only">Close dialog</span>
+              <span className="sr-only">Tutup dialog</span>
             </Dialog.Close>
           </div>
 
@@ -462,11 +462,11 @@ export function RepositorySelectionDialog({ isOpen, onClose, onSelect }: Reposit
             <div className="flex gap-2 mb-4">
               <TabButton active={activeTab === 'my-repos'} onClick={() => setActiveTab('my-repos')}>
                 <span className="i-ph:book-bookmark" />
-                My Repos
+                Repo Saya
               </TabButton>
               <TabButton active={activeTab === 'search'} onClick={() => setActiveTab('search')}>
                 <span className="i-ph:magnifying-glass" />
-                Search
+                Cari
               </TabButton>
               <TabButton active={activeTab === 'url'} onClick={() => setActiveTab('url')}>
                 <span className="i-ph:link" />
@@ -489,7 +489,7 @@ export function RepositorySelectionDialog({ isOpen, onClose, onSelect }: Reposit
                   disabled={!customUrl}
                   className="w-full h-10 px-4 py-2 rounded-lg bg-purple-500 text-white hover:bg-purple-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 flex items-center gap-2 justify-center"
                 >
-                  Import Repository
+                  Import Repositori
                 </button>
               </div>
             ) : (
@@ -499,7 +499,7 @@ export function RepositorySelectionDialog({ isOpen, onClose, onSelect }: Reposit
                     <div className="flex gap-2">
                       <input
                         type="text"
-                        placeholder="Search repositories..."
+                        placeholder="Cari repositori..."
                         value={searchQuery}
                         onChange={(e) => {
                           setSearchQuery(e.target.value);
@@ -517,7 +517,7 @@ export function RepositorySelectionDialog({ isOpen, onClose, onSelect }: Reposit
                     <div className="grid grid-cols-2 gap-2">
                       <input
                         type="text"
-                        placeholder="Filter by language..."
+                        placeholder="Filter berdasar bahasa..."
                         value={filters.language || ''}
                         onChange={(e) => {
                           setFilters({ ...filters, language: e.target.value });
@@ -556,7 +556,7 @@ export function RepositorySelectionDialog({ isOpen, onClose, onSelect }: Reposit
                         <h3 className="font-medium">{selectedRepository.full_name}</h3>
                       </div>
                       <div className="space-y-2">
-                        <label className="text-sm text-bolt-elements-textSecondary">Select Branch</label>
+                        <label className="text-sm text-bolt-elements-textSecondary">Pilih Branch</label>
                         <select
                           value={selectedBranch}
                           onChange={(e) => setSelectedBranch(e.target.value)}
@@ -576,7 +576,7 @@ export function RepositorySelectionDialog({ isOpen, onClose, onSelect }: Reposit
                           onClick={handleImport}
                           className="w-full h-10 px-4 py-2 rounded-lg bg-purple-500 text-white hover:bg-purple-600 transition-all duration-200 flex items-center gap-2 justify-center"
                         >
-                          Import Selected Branch
+                          Import Branch Terpilih
                         </button>
                       </div>
                     </div>
@@ -638,7 +638,7 @@ function RepositoryList({
     return (
       <div className="flex items-center justify-center py-8 text-bolt-elements-textSecondary">
         <span className="i-ph:spinner animate-spin mr-2" />
-        Loading repositories...
+        Memuat repositori...
       </div>
     );
   }
@@ -647,7 +647,7 @@ function RepositoryList({
     return (
       <div className="flex flex-col items-center justify-center py-8 text-bolt-elements-textSecondary">
         <span className="i-ph:folder-simple-dashed w-12 h-12 mb-2 opacity-50" />
-        <p>{activeTab === 'my-repos' ? 'No repositories found' : 'Search for repositories'}</p>
+        <p>{activeTab === 'my-repos' ? 'Tidak ada repo ditemukan' : 'Cari repositori'}</p>
       </div>
     );
   }
