@@ -600,6 +600,7 @@ export const BaseChat = React.forwardRef<HTMLDivElement, BaseChatProps>(
                   <GitCloneButton importChat={importChat} />
                 </div>
               )}
+              {/* 
               {!chatStarted &&
                 ExamplePrompts((event, messageInput) => {
                   if (isStreaming) {
@@ -610,6 +611,7 @@ export const BaseChat = React.forwardRef<HTMLDivElement, BaseChatProps>(
                   handleSendMessage?.(event, messageInput);
                 })}
               {!chatStarted && <StarterTemplates />}
+              */}
             </div>
           </div>
           <ClientOnly>
