@@ -190,7 +190,7 @@ export const ModelSelector = ({
         ))}
       </select>
 
-      <div className="relative flex-1 lg:max-w-[70%]" onKeyDown={handleKeyDown} ref={dropdownRef}>
+      <div className="relative flex-1" onKeyDown={handleKeyDown} ref={dropdownRef}>
         <div
           className={classNames(
             'w-full p-2 rounded-lg border border-bolt-elements-borderColor',
@@ -213,7 +213,7 @@ export const ModelSelector = ({
           tabIndex={0}
         >
           <div className="flex items-center justify-between">
-            <div className="truncate">{modelList.find((m) => m.name === model)?.label || 'Select model'}</div>
+            <div className="truncate">{modelList.find((m) => m.name === model)?.label || 'Select a large language model'}</div>
             <div
               className={classNames(
                 'i-ph:caret-down w-4 h-4 text-bolt-elements-textSecondary opacity-75',
@@ -236,7 +236,7 @@ export const ModelSelector = ({
                   type="text"
                   value={modelSearchQuery}
                   onChange={(e) => setModelSearchQuery(e.target.value)}
-                  placeholder="Search models..."
+                  placeholder="Search large language models..."
                   className={classNames(
                     'w-full pl-8 pr-3 py-1.5 rounded-md text-sm',
                     'bg-bolt-elements-background-depth-2 border border-bolt-elements-borderColor',
