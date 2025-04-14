@@ -31,11 +31,11 @@ export function binDates(_list: ChatHistoryItem[]) {
 
 function dateCategory(date: Date) {
   if (isToday(date)) {
-    return 'Today';
+    return 'Hari Ini';
   }
 
   if (isYesterday(date)) {
-    return 'Yesterday';
+    return 'Kemarin';
   }
 
   if (isThisWeek(date)) {
@@ -46,7 +46,7 @@ function dateCategory(date: Date) {
   const thirtyDaysAgo = subDays(new Date(), 30);
 
   if (isAfter(date, thirtyDaysAgo)) {
-    return 'Past 30 Days';
+    return 'Dalam 30 Hari';
   }
 
   if (isThisYear(date)) {
