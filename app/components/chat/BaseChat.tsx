@@ -516,7 +516,7 @@ export const BaseChat = React.forwardRef<HTMLDivElement, BaseChatProps>(
                         minHeight: TEXTAREA_MIN_HEIGHT,
                         maxHeight: TEXTAREA_MAX_HEIGHT,
                       }}
-                      placeholder="How can Bolt help you today?"
+                      placeholder="Mau mengoding tanpa takut token limit? Ketik promptnya disini..."
                       translate="no"
                     />
                     <ClientOnly>
@@ -544,12 +544,12 @@ export const BaseChat = React.forwardRef<HTMLDivElement, BaseChatProps>(
                           <div className="i-ph:paperclip text-xl"></div>
                         </IconButton>
                         <IconButton
-                          title="Enhance prompt"
+                          title="Perbagus prompt"
                           disabled={input.length === 0 || enhancingPrompt}
                           className={classNames('transition-all', enhancingPrompt ? 'opacity-100' : '')}
                           onClick={() => {
                             enhancePrompt?.();
-                            toast.success('Prompt enhanced!');
+                            toast.success('Prompt diperbagus!');
                           }}
                         >
                           {enhancingPrompt ? (
@@ -567,7 +567,7 @@ export const BaseChat = React.forwardRef<HTMLDivElement, BaseChatProps>(
                         />
                         {chatStarted && <ClientOnly>{() => <ExportChatButton exportChat={exportChat} />}</ClientOnly>}
                         <IconButton
-                          title="Model Settings"
+                          title="Model AI"
                           className={classNames('transition-all flex items-center gap-1', {
                             'bg-bolt-elements-item-backgroundAccent text-bolt-elements-item-contentAccent':
                               isModelSettingsCollapsed,
@@ -583,9 +583,9 @@ export const BaseChat = React.forwardRef<HTMLDivElement, BaseChatProps>(
                       </div>
                       {input.length > 3 ? (
                         <div className="text-xs text-bolt-elements-textTertiary">
-                          Use <kbd className="kdb px-1.5 py-0.5 rounded bg-bolt-elements-background-depth-2">Shift</kbd>{' '}
+                          Gunakan <kbd className="kdb px-1.5 py-0.5 rounded bg-bolt-elements-background-depth-2">Shift</kbd>{' '}
                           + <kbd className="kdb px-1.5 py-0.5 rounded bg-bolt-elements-background-depth-2">Return</kbd>{' '}
-                          a new line
+                          garis baru
                         </div>
                       ) : null}
                     </div>
