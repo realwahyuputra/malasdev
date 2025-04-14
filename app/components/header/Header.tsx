@@ -18,7 +18,14 @@ export function Header() {
       <div className="flex items-center gap-2 z-logo text-bolt-elements-textPrimary cursor-pointer">
         <div className="i-ph:sidebar-simple-duotone text-xl" />
         <a href="/" className="text-2xl font-semibold text-accent flex items-center">
-          <span className="font-bold">Programmer<span className="text-yellow-500">Malas</span></span>
+          <span className="font-bold">
+            <span className="sm:inline hidden">Programmer</span>
+            <span className="sm:hidden inline">Pro</span>
+            <span className="text-yellow-500">
+              <span className="sm:inline hidden">Malas</span>
+              <span className="sm:hidden inline">Mas</span>
+            </span>
+          </span>
         </a>
       </div>
       {chat.started && ( // Display ChatDescription and HeaderActionButtons only when the chat has started.
