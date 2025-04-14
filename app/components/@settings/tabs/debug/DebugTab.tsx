@@ -1834,12 +1834,12 @@ export default function DebugTab() {
                     <div className="text-sm flex items-center gap-2">
                       <div className="i-ph:app-window text-bolt-elements-textSecondary w-4 h-4" />
                       <span className="text-bolt-elements-textSecondary">Name:</span>
-                      <span className="text-bolt-elements-textPrimary">{webAppInfo.name}</span>
+                      <span className="text-bolt-elements-textPrimary">Programmer Malas</span>
                     </div>
                     <div className="text-sm flex items-center gap-2">
                       <div className="i-ph:tag text-bolt-elements-textSecondary w-4 h-4" />
                       <span className="text-bolt-elements-textSecondary">Version:</span>
-                      <span className="text-bolt-elements-textPrimary">{webAppInfo.version}</span>
+                      <span className="text-bolt-elements-textPrimary">1.0.0</span>
                     </div>
                     <div className="text-sm flex items-center gap-2">
                       <div className="i-ph:certificate text-bolt-elements-textSecondary w-4 h-4" />
@@ -1870,12 +1870,12 @@ export default function DebugTab() {
                     <div className="text-sm flex items-center gap-2">
                       <div className="i-ph:git-commit text-bolt-elements-textSecondary w-4 h-4" />
                       <span className="text-bolt-elements-textSecondary">Commit:</span>
-                      <span className="text-bolt-elements-textPrimary">{webAppInfo.gitInfo.local.commitHash}</span>
+                      <span className="text-bolt-elements-textPrimary">98765AS</span>
                     </div>
                     <div className="text-sm flex items-center gap-2">
                       <div className="i-ph:user text-bolt-elements-textSecondary w-4 h-4" />
                       <span className="text-bolt-elements-textSecondary">Author:</span>
-                      <span className="text-bolt-elements-textPrimary">{webAppInfo.gitInfo.local.author}</span>
+                      <span className="text-bolt-elements-textPrimary">IMPHNEN</span>
                     </div>
                     <div className="text-sm flex items-center gap-2">
                       <div className="i-ph:clock text-bolt-elements-textSecondary w-4 h-4" />
