@@ -73,8 +73,8 @@ export function GitUrlImport() {
 
           const filesMessage: Message = {
             role: 'assistant',
-            content: `Cloning the repo ${repoUrl} into ${workdir}
-<boltArtifact id="imported-files" title="Git Cloned Files"  type="bundled">
+            content: `Cloning repo ${repoUrl} ke ${workdir}
+<boltArtifact id="imported-files" title="Clone File Git"  type="bundled">
 ${fileContents
   .map(
     (file) =>
@@ -94,7 +94,7 @@ ${escapeBoltTags(file.content)}
             messages.push({
               role: 'user',
               id: generateId(),
-              content: 'Setup the codebase and Start the application',
+              content: 'Setup basis kode dan memulai aplikasi',
             });
             messages.push(commandsMessage);
           }
@@ -103,7 +103,7 @@ ${escapeBoltTags(file.content)}
         }
       } catch (error) {
         console.error('Error during import:', error);
-        toast.error('Failed to import repository');
+        toast.error('Gagal import repositori');
         setLoading(false);
         window.location.href = '/';
 
@@ -126,7 +126,7 @@ ${escapeBoltTags(file.content)}
 
     importRepo(url).catch((error) => {
       console.error('Error importing repo:', error);
-      toast.error('Failed to import repository');
+      toast.error('Gagal import repositori');
       setLoading(false);
       window.location.href = '/';
     });
@@ -138,7 +138,7 @@ ${escapeBoltTags(file.content)}
       {() => (
         <>
           <Chat />
-          {loading && <LoadingOverlay message="Please wait while we clone the repository..." />}
+          {loading && <LoadingOverlay message="Mohon menunggu sedang proses cloning repositori..." />}
         </>
       )}
     </ClientOnly>
