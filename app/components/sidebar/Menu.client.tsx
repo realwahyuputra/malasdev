@@ -40,21 +40,33 @@ type DialogContent = { type: 'delete'; item: ChatHistoryItem } | null;
 
 function CurrentDateTime() {
   const [dateTime, setDateTime] = useState(new Date());
-
   useEffect(() => {
     const timer = setInterval(() => {
       setDateTime(new Date());
     }, 60000);
-
     return () => clearInterval(timer);
   }, []);
-
+  
+  // Custom date format: "14 Apr 2025"
+  const formattedDate = dateTime.toLocaleDateString('en-GB', {
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric'
+  });
+  
+  // Custom time format: "14:50" (24-hour)
+  const formattedTime = dateTime.toLocaleTimeString('en-GB', {
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false
+  });
+  
   return (
     <div className="flex items-center gap-2 px-4 py-2 text-sm text-gray-600 dark:text-gray-400 border-b border-gray-100 dark:border-gray-800/50">
       <div className="h-4 w-4 i-lucide:clock opacity-80" />
       <div className="flex gap-2">
-        <span>{dateTime.toLocaleDateString()}</span>
-        <span>{dateTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
+        <span>{formattedDate}</span>
+        <span>{formattedTime}</span>
       </div>
     </div>
   );
