@@ -44,12 +44,12 @@ export function HeaderActionButtons({}: HeaderActionButtonsProps) {
 
   const handleDeploy = async () => {
     if (!connection.user || !connection.token) {
-      toast.error('Please connect to Netlify first in the settings tab!');
+      toast.error('Hubungkan Netlify dahulu di tab settings!');
       return;
     }
 
     if (!currentChatId) {
-      toast.error('No active chat found');
+      toast.error('Tidak ada chat aktif');
       return;
     }
 
@@ -238,7 +238,7 @@ export function HeaderActionButtons({}: HeaderActionButtonsProps) {
                 crossOrigin="anonymous"
                 src="https://cdn.simpleicons.org/netlify"
               />
-              <span className="mx-auto">{!connection.user ? 'No Account Connected' : 'Deploy to Netlify'}</span>
+              <span className="mx-auto">{!connection.user ? 'Belum Terhubung' : 'Deploy ke Netlify'}</span>
               {connection.user && <NetlifyDeploymentLink />}
             </Button>
             <Button
@@ -246,7 +246,7 @@ export function HeaderActionButtons({}: HeaderActionButtonsProps) {
               disabled
               className="flex items-center w-full rounded-md px-4 py-2 text-sm text-bolt-elements-textTertiary gap-2"
             >
-              <span className="sr-only">Coming Soon</span>
+              <span className="sr-only">Segera</span>
               <img
                 className="w-5 h-5 bg-black p-1 rounded"
                 height="24"
@@ -255,14 +255,14 @@ export function HeaderActionButtons({}: HeaderActionButtonsProps) {
                 src="https://cdn.simpleicons.org/vercel/white"
                 alt="vercel"
               />
-              <span className="mx-auto">Deploy to Vercel (Coming Soon)</span>
+              <span className="mx-auto">Deploy ke Vercel (Segera)</span>
             </Button>
             <Button
               active={false}
               disabled
               className="flex items-center w-full rounded-md px-4 py-2 text-sm text-bolt-elements-textTertiary gap-2"
             >
-              <span className="sr-only">Coming Soon</span>
+              <span className="sr-only">Segera</span>
               <img
                 className="w-5 h-5"
                 height="24"
@@ -271,7 +271,7 @@ export function HeaderActionButtons({}: HeaderActionButtonsProps) {
                 src="https://cdn.simpleicons.org/cloudflare"
                 alt="vercel"
               />
-              <span className="mx-auto">Deploy to Cloudflare (Coming Soon)</span>
+              <span className="mx-auto">Deploy ke Cloudflare (Segera)</span>
             </Button>
           </div>
         )}
