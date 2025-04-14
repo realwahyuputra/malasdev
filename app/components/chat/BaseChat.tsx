@@ -552,7 +552,7 @@ export const BaseChat = React.forwardRef<HTMLDivElement, BaseChatProps>(
                           className={classNames('transition-all', enhancingPrompt ? 'opacity-100' : '')}
                           onClick={() => {
                             enhancePrompt?.();
-                            toast.success('Prompt diperbagus!');
+                            toast.success('Memperbagus Prompt...');
                           }}
                         >
                           {enhancingPrompt ? (
