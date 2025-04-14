@@ -120,7 +120,7 @@ export function PushToGitHubDialog({ isOpen, onClose, onPush }: PushToGitHubDial
     const connection = getLocalStorage('github_connection');
 
     if (!connection?.token || !connection?.user) {
-      toast.error('Please connect your GitHub account in Settings > Connections first');
+      toast.error('Hubungkan akun Github kamu di Settings > Connections first');
       return;
     }
 
