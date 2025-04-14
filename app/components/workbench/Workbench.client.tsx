@@ -340,7 +340,7 @@ export const Workbench = memo(
         toast.success('Files synced successfully');
       } catch (error) {
         console.error('Error syncing files:', error);
-        toast.error('Failed to sync files');
+        toast.error('Gagal sync files');
       } finally {
         setIsSyncing(false);
       }
@@ -384,11 +384,11 @@ export const Workbench = memo(
                         }}
                       >
                         <div className="i-ph:code" />
-                        Download Code
+                        Unduh Kode
                       </PanelHeaderButton>
                       <PanelHeaderButton className="mr-1 text-sm" onClick={handleSyncFiles} disabled={isSyncing}>
                         {isSyncing ? <div className="i-ph:spinner" /> : <div className="i-ph:cloud-arrow-down" />}
-                        {isSyncing ? 'Syncing...' : 'Sync Files'}
+                        {isSyncing ? 'Sinkronisasi...' : 'Sinkronisasi Files'}
                       </PanelHeaderButton>
                       <PanelHeaderButton
                         className="mr-1 text-sm"
@@ -397,11 +397,11 @@ export const Workbench = memo(
                         }}
                       >
                         <div className="i-ph:terminal" />
-                        Toggle Terminal
+                        Akses Terminal
                       </PanelHeaderButton>
                       <PanelHeaderButton className="mr-1 text-sm" onClick={() => setIsPushDialogOpen(true)}>
                         <div className="i-ph:git-branch" />
-                        Push to GitHub
+                        Push ke GitHub
                       </PanelHeaderButton>
                     </div>
                   )}
@@ -451,7 +451,7 @@ export const Workbench = memo(
             onClose={() => setIsPushDialogOpen(false)}
             onPush={async (repoName, username, token) => {
               try {
-                const commitMessage = prompt('Please enter a commit message:', 'Initial commit') || 'Initial commit';
+                const commitMessage = prompt('Masukkan commit message:', 'Commit perdana') || 'Commit perdana';
                 await workbenchStore.pushToGitHub(repoName, commitMessage, username, token);
 
                 const repoUrl = `https://github.com/${username}/${repoName}`;
@@ -466,7 +466,7 @@ export const Workbench = memo(
                 return repoUrl;
               } catch (error) {
                 console.error('Error pushing to GitHub:', error);
-                toast.error('Failed to push to GitHub');
+                toast.error('Gagal push ke GitHub');
                 throw error;
               }
             }}
