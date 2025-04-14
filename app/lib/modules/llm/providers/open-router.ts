@@ -26,53 +26,6 @@ export default class OpenRouterProvider extends BaseProvider {
     apiTokenKey: 'OPEN_ROUTER_API_KEY',
   };
 
-  staticModels: ModelInfo[] = [
-    {
-      name: 'anthropic/claude-3.5-sonnet',
-      label: 'Anthropic: Claude 3.5 Sonnet (OpenRouter)',
-      provider: 'OpenRouter',
-      maxTokenAllowed: 8000,
-    },
-    {
-      name: 'anthropic/claude-3-haiku',
-      label: 'Anthropic: Claude 3 Haiku (OpenRouter)',
-      provider: 'OpenRouter',
-      maxTokenAllowed: 8000,
-    },
-    {
-      name: 'deepseek/deepseek-coder',
-      label: 'Deepseek-Coder V2 236B (OpenRouter)',
-      provider: 'OpenRouter',
-      maxTokenAllowed: 8000,
-    },
-    {
-      name: 'google/gemini-flash-1.5',
-      label: 'Google Gemini Flash 1.5 (OpenRouter)',
-      provider: 'OpenRouter',
-      maxTokenAllowed: 8000,
-    },
-    {
-      name: 'google/gemini-pro-1.5',
-      label: 'Google Gemini Pro 1.5 (OpenRouter)',
-      provider: 'OpenRouter',
-      maxTokenAllowed: 8000,
-    },
-    { name: 'x-ai/grok-beta', label: 'xAI Grok Beta (OpenRouter)', provider: 'OpenRouter', maxTokenAllowed: 8000 },
-    {
-      name: 'mistralai/mistral-nemo',
-      label: 'OpenRouter Mistral Nemo (OpenRouter)',
-      provider: 'OpenRouter',
-      maxTokenAllowed: 8000,
-    },
-    {
-      name: 'qwen/qwen-110b-chat',
-      label: 'OpenRouter Qwen 110b Chat (OpenRouter)',
-      provider: 'OpenRouter',
-      maxTokenAllowed: 8000,
-    },
-    { name: 'cohere/command', label: 'Cohere Command (OpenRouter)', provider: 'OpenRouter', maxTokenAllowed: 4096 },
-  ];
-
   async getDynamicModels(
     _apiKeys?: Record<string, string>,
     _settings?: IProviderSetting,
@@ -88,6 +41,7 @@ export default class OpenRouterProvider extends BaseProvider {
       const data = (await response.json()) as OpenRouterModelsResponse;
 
       return data.data
+        .filter(m => m.name.toLowerCase().includes('free'))
         .sort((a, b) => a.name.localeCompare(b.name))
         .map((m) => ({
           name: m.id,
